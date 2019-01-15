@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.0.3</version>
+    <title>$title$</title>
+    <authors>DNLi</authors>
+    <owners>DNLi</owners>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+	--------------------------------------介绍说明---------------------------------------------
+DNLiCore_Cache是基于.NetCore SDK2.2下的一个缓存帮助工具,对应的缓存包括Cache,Redis,Memcache
+
+--------------------------------------Redis使用说明---------------------------------------------
+1.通过Nuget安装DNLiCore_Cache工具类
+2.在appsettings.json配置redis字符串
+  "Redis": {
+    "InstanceName": "Redis",
+    "ConnectionString": "*****:6379,defaultDatabase=4" //redis连接地址
+  }
+3.在Startup.cs里面注入
+    services.AddSingleton(typeof(DNLiCore_Cache_Redis.IRedisHelper), new DNLiCore_Cache_Redis.RedisHelper(new RedisCacheOptions()
+            {
+                Configuration = Configuration.GetSection("Redis:ConnectionString").Value,
+                InstanceName = Configuration.GetSection("Redis:Redis").Value
+            }));
+4.直接在控制器中注入调用
+
+
+--------------------------------------MemoryCache使用说明---------------------------------------------
+1.在Startup.cs里面注入
+  services.AddMemoryCache();
+2.直接在控制器中注入调用
+	</description>
+	<dependencies>
+      <dependency id="DNLiCore_Utility" version="0.0.1" />
+      <dependency id="FluentCache.Microsoft.Extensions.Caching.Redis" version="4.0.0.2" />
+    </dependencies>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Tag1 Tag2</tags>
+  </metadata>
+</package>
