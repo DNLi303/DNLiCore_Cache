@@ -14,7 +14,7 @@
       DNLiCore_Cache一个简单容易的缓存帮助类
     </description>
 	<dependencies>
-      <dependency id="DNLiCore_Utility" version="0.0.1" />
+      <dependency id="EnyimMemcachedCore" version="2.1.12" />
       <dependency id="FluentCache.Microsoft.Extensions.Caching.Redis" version="4.0.0.2" />
     </dependencies>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
