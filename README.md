@@ -1,0 +1,2 @@
+# DNLiCore_Cache
+DNLiCore_Cache一个简单容易的缓存帮助类
