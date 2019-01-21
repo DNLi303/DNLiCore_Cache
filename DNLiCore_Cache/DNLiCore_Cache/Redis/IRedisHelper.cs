@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DNLiCore_Cache_Redis
+namespace DNLiCore_Cache.Redis
 {
     public interface IRedisHelper
     {

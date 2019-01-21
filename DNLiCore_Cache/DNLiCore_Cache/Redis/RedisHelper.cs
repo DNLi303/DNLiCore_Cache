@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
+﻿using Enyim.Caching;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Redis;
 using Newtonsoft.Json.Converters;
 using System;
@@ -6,19 +7,18 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace DNLiCore_Cache_Redis
+namespace DNLiCore_Cache.Redis
 {
 
     public class RedisHelper : IRedisHelper
     {
-        // IDistributedCache _rediscache;
         private RedisCache _rediscache = null;
         const double defaultExpiryTime = 10080;
         public RedisHelper(RedisCacheOptions options)
         {
             _rediscache = new RedisCache(options);
-          
         }
+
 
         #region 设置缓存
         /// <summary>
@@ -50,12 +50,12 @@ namespace DNLiCore_Cache_Redis
                     AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(expiryTime)
                 };
                 _rediscache.SetString(key, value, options);
-                
+
                 return true;
             }
             catch (Exception ex)
             {
-                
+
                 return false;
             }
         }
@@ -230,7 +230,7 @@ namespace DNLiCore_Cache_Redis
         public static IsoDateTimeConverter timejson = new IsoDateTimeConverter
         {
             DateTimeFormat = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
-        }; 
+        };
         #endregion
     }
 }
